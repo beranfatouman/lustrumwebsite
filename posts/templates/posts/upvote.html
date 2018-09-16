@@ -1,0 +1,13 @@
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+<a href="/accounts/logout" class=btn>Logout</a>
+<h3 class="center-align red lighten-3">{{post.title}}</h3>
+<script>
+    alert('U heeft zich succesvol aangemeld voor deze activiteit.');
+    window.location = '/posts/details/{{post.id}}';
+</script>
+<a href="/posts" class=btn>Go Back</a>
+
+{% endblock %}
+    

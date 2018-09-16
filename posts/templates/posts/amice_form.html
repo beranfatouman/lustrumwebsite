@@ -1,0 +1,10 @@
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+<a href="/accounts/form" class=btn>Logout</a>
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}

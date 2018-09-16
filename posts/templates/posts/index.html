@@ -1,0 +1,21 @@
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+<a href="/accounts/logout" class=btn>Logout</a>
+<h3 class="center-align red lighten-3">{{title}}</h3>
+<ul class="collection">
+	{% for Post in Posts %}
+		<div class="card-action">
+			<li class="collection-item"></li><a href="/posts/details/{{Post.id}}">{{Post.title}}</a>
+		</div>
+		<div class="card-action">
+			Datum: 
+			{{Post.event_date}}
+		</div>
+		<div class="card-action">
+			Aantal aanwezigen: {{Post.count}}
+		</div>
+
+	{% endfor%}
+</ul>
+{% endblock %}

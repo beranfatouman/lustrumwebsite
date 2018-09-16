@@ -1,0 +1,30 @@
+{% extends 'posts/layout.html' %}
+
+
+{% block content %}
+<a href="/accounts/logout" class=btn>Logout</a>
+<h3 class="center-align red lighten-3">{{post.title}}</h3>
+<div class="card">
+	<div class="card-content">
+		{{post.body|linebreaksbr}}
+	</div>
+</div>
+{% load ttags %}
+{% load static %}
+<link rel='stylesheet' href = "{% static 'css/main.css' %}" type='text/css'/>
+<div class='wrapper'>
+	<a class='button' href="{% url 'meld_u_aan' pk=post.pk %}">Aanmelden</a>
+</div>
+<table>
+<h4 class="center-align red lighten-3">Aanwezigen</h4>
+<ul class="collection">
+{% for Amice in Amici|order_by:"lichting" %}
+	<TR>
+	   <TD class="c1">{{Amice.first_name}} {{Amice.last_name}}</TD>
+	   <TD class="c2"><SPAN>{{Amice.lichting}}</SPAN></TD>
+	</TR>
+{% endfor%}
+</table>
+</ul>
+<a href="/posts" class=btn>Go Back</a>
+{% endblock %}
